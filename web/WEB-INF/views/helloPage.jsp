@@ -4,7 +4,24 @@
     <title>Heiken</title>
 </head>
 <body>
-<h1>Welcome to Heiken.</h1>
+<header>
+    <div class="header">
+        <nav>
+            <a href="/"><img src="images/Heiken.png" alt="logo"/></a>
+        </nav>
+        <div class="header__section">
+            <div class="header__item headerButton"><a>Hello, ${author}!</a></div>
+            <div class="header__item headerButton"><a href="./computer.jsp">Админ страница</a></div>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <div class="header__item headerButton"><a href="/login">Войти</a></div>
+            </c:if>
+
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <div class="header__item headerButton"><a href="/logout">Выйти</a></div>
+            </c:if>
+        </div>
+    </div>
+</header>
 
 </body>
 </html>

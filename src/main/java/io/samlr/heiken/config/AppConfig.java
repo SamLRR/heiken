@@ -1,5 +1,8 @@
 package io.samlr.heiken.config;
 
+import io.samlr.heiken.dao.ComputerDao;
+import io.samlr.heiken.dao.impl.ComputerDaoImpl;
+import io.samlr.heiken.entity.Computer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -47,5 +50,10 @@ public class AppConfig {
         jdbcDao.setUsersByUsernameQuery(environment.getRequiredProperty("userByQuery"));
         jdbcDao.setAuthoritiesByUsernameQuery(environment.getRequiredProperty("rolesByQuery"));
         return jdbcDao;
+    }
+
+    @Bean
+    public ComputerDao computerDao(){
+        return new ComputerDaoImpl(Computer.class);
     }
 }

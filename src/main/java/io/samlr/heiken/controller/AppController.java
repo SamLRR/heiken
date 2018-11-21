@@ -9,6 +9,6 @@ public class AppController {
     @RequestMapping("/")
     public String getHelloPage(){
 
-        return "helloPage";
+        return "computer";
     }
 }
