@@ -24,11 +24,6 @@ public class AppConfig {
     @Bean
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        // WRONG!!! Not for production!
-        //        dataSource.setDriverClassName("org.postgresql.Driver");
-        //        dataSource.setUrl("jdbc:postgresql://localhost:5432/freefly");
-        //        dataSource.setUsername("root");
-        //        dataSource.setPassword("root");
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.postgresql.driver"));
         dataSource.setUrl(environment.getRequiredProperty("jdbc.postgresql.url"));
         dataSource.setUsername(environment.getRequiredProperty("jdbc.postgresql.user"));

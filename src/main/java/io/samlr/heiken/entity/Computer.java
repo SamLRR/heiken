@@ -9,17 +9,29 @@ public class Computer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String pk;
-    private Long id_uzel;
-    private Long id_otdel;
-    private String descr;
-    private String ip;
+
+    @Column(name = "arm_name")
+    private String armName;
+    private Long code;
+
+    @Column(name = "node_id")
+    private Long nodeId;
+
+    @Column(name = "department_id")
+    private Long departmentId;
+    private String description;
+
+    @Column(name = "domain_name")
+    private String domainName;
+
     private String name;
-    private String tel;
+    private String phone;
     private Long tip_pk;
     private Long diap_ip;
     private String radmin_pass;
-    private String descr_ad;
+
+    @Column(name = "user_description")
+    private String userDescription;
     private String radmin_port;
 
     public Long getId() {
@@ -30,44 +42,44 @@ public class Computer {
         this.id = id;
     }
 
-    public String getPk() {
-        return pk;
+    public String getArmName() {
+        return armName;
     }
 
-    public void setPk(String pk) {
-        this.pk = pk;
+    public void setArmName(String armName) {
+        this.armName = armName;
     }
 
-    public Long getId_uzel() {
-        return id_uzel;
+    public Long getNodeId() {
+        return nodeId;
     }
 
-    public void setId_uzel(Long id_uzel) {
-        this.id_uzel = id_uzel;
+    public void setNodeId(Long nodeId) {
+        this.nodeId = nodeId;
     }
 
-    public Long getId_otdel() {
-        return id_otdel;
+    public Long getDepartmentId() {
+        return departmentId;
     }
 
-    public void setId_otdel(Long id_otdel) {
-        this.id_otdel = id_otdel;
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public String getDescr() {
-        return descr;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescr(String descr) {
-        this.descr = descr;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getIp() {
-        return ip;
+    public String getDomainName() {
+        return domainName;
     }
 
-    public void setIp(String ip) {
-        this.ip = ip;
+    public void setDomainName(String domainName) {
+        this.domainName = domainName;
     }
 
     public String getName() {
@@ -78,12 +90,12 @@ public class Computer {
         this.name = name;
     }
 
-    public String getTel() {
-        return tel;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Long getTip_pk() {
@@ -110,12 +122,12 @@ public class Computer {
         this.radmin_pass = radmin_pass;
     }
 
-    public String getDescr_ad() {
-        return descr_ad;
+    public String getUserDescription() {
+        return userDescription;
     }
 
-    public void setDescr_ad(String descr_ad) {
-        this.descr_ad = descr_ad;
+    public void setUserDescription(String userDescription) {
+        this.userDescription = userDescription;
     }
 
     public String getRadmin_port() {
@@ -124,5 +136,13 @@ public class Computer {
 
     public void setRadmin_port(String radmin_port) {
         this.radmin_port = radmin_port;
+    }
+
+    public Long getCode() {
+        return code;
+    }
+
+    public void setCode(Long code) {
+        this.code = code;
     }
 }

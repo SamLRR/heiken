@@ -1,4 +1,5 @@
-    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Heiken</title>
@@ -11,14 +12,14 @@
         </nav>
         <div class="header__section">
             <div class="header__item headerButton"><a>Hello, ${author}!</a></div>
-            <div class="header__item headerButton"><a href="./computer.jsp">Админ страница</a></div>
-            <c:if test="${pageContext.request.userPrincipal.name == null}">
-                <div class="header__item headerButton"><a href="/login">Войти</a></div>
-            </c:if>
+            <div class="header__item headerButton"><a href="/adminpage"><strong>Админ страница</strong></a></div>
+            <%--<c:if test="${pageContext.request.userPrincipal.name == null}">--%>
+                <%--<div class="header__item headerButton"><a href="/login">Войти</a></div>--%>
+            <%--</c:if>--%>
 
-            <c:if test="${pageContext.request.userPrincipal.name != null}">
-                <div class="header__item headerButton"><a href="/logout">Выйти</a></div>
-            </c:if>
+            <%--<c:if test="${pageContext.request.userPrincipal.name != null}">--%>
+                <%--<div class="header__item headerButton"><a href="/logout">Выйти</a></div>--%>
+            <%--</c:if>--%>
         </div>
     </div>
 </header>

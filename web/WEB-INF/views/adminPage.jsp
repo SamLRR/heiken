@@ -9,10 +9,10 @@
 <script>
     var service = 'http://localhost:8080/computer';
 
-    var RestPost = function (name, descr) {
+    var RestPost = function (name, description) {
         var JSONObject = {
             'name': name,
-            'description': descr
+            'description': description
         };
 
 
@@ -102,7 +102,7 @@
         </td>
         <td>/computer/get/all</td>
         <td>
-            <button type="button" onclick="RestGetAll()">try</button>
+            <div class="header__item headerButton"><a href="/all_computers">All computers</a></div>
         </td>
     </tr>
 
