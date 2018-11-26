@@ -5,4 +5,6 @@ import io.samlr.heiken.entity.Computer;
 public interface ComputerDao extends BasicDao<Computer>{
 
     Computer getComputerByName(String name);
+
+    Computer getComputerByIp(long ip);
 }

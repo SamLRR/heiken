@@ -20,8 +20,13 @@ public class ComputerServiceImpl implements ComputerService {
     }
 
     @Override
-    public Computer getComputerByIp(Long ip) {
-        return computerDao.getById(ip);
+    public Computer getComputerById(Long id) {
+        return computerDao.getById(id);
+    }
+
+    @Override
+    public Computer getComputerByIp(long ip) {
+        return computerDao.getComputerByIp(ip);
     }
 
     @Override

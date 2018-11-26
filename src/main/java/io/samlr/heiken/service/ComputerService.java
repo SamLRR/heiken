@@ -8,11 +8,13 @@ public interface ComputerService {
 
     Computer addComputer(Computer computer);
 
-    Computer getComputerByIp(Long ip);
+    Computer getComputerById(Long ip);
 
     List<Computer> getAllComputers();
 
     Computer getComputerByName(String name);
 
     Computer updateComputer(Computer computer);
+
+    Computer getComputerByIp(long parseLong);
 }

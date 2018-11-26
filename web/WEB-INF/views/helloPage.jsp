@@ -12,7 +12,7 @@
         </nav>
         <div class="header__section">
             <div class="header__item headerButton"><a>Hello, ${author}!</a></div>
-            <div class="header__item headerButton"><a href="/adminpage"><strong>Админ страница</strong></a></div>
+            <div class="header__item headerButton"><a href="/all_computers"><strong>Show computers</strong></a></div>
             <%--<c:if test="${pageContext.request.userPrincipal.name == null}">--%>
                 <%--<div class="header__item headerButton"><a href="/login">Войти</a></div>--%>
             <%--</c:if>--%>

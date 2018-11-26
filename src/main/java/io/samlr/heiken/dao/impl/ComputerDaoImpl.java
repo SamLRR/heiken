@@ -28,4 +28,19 @@ public class ComputerDaoImpl extends BasicDaoImpl<Computer> implements ComputerD
         Query<Computer> typedQuery = session.createQuery(criteriaQuery);
         return typedQuery.getSingleResult();
     }
+
+    @Override
+    public Computer getComputerByIp(long ip) {
+        Session session = sessionFactory.getCurrentSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Computer> criteriaQuery = builder.createQuery(Computer.class);
+        Root<Computer> root = criteriaQuery.from(Computer.class);
+
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("description"), ip));
+
+        Query<Computer> typedQuery = session.createQuery(criteriaQuery);
+        return typedQuery.getSingleResult();
+    }
 }

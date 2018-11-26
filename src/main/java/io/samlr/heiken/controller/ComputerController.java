@@ -27,7 +27,13 @@ public class ComputerController {
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
     public Computer getComputerById(@PathVariable(value = "id") String id){
-        return computerService.getComputerByIp(Long.parseLong(id));
+        return computerService.getComputerById(Long.parseLong(id));
+    }
+
+    @RequestMapping(value = "/get/ip/{ip}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public Computer getComputerByIp(@PathVariable(value = "ip") String ip){
+        return computerService.getComputerByIp(Long.parseLong(ip));
     }
 
     @RequestMapping(value = "/get/all", method = RequestMethod.GET, produces = "application/json;charset=utf-8")

@@ -40,7 +40,7 @@ public class AppController {
 
     @RequestMapping(value = {"/edit-computer-{id}"}, method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public String editComputer(@PathVariable String id, ModelMap model) {
-        Computer computer = computerService.getComputerByIp(Long.parseLong(id));
+        Computer computer = computerService.getComputerById(Long.parseLong(id));
         model.addAttribute("computer", computer);
         model.addAttribute("edit", true);
         return "registration";

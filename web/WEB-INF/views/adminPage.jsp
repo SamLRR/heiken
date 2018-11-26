@@ -32,10 +32,10 @@
         });
     };
 
-    var RestGet = function (id) {
+    var RestGetIp = function (ip) {
         $.ajax({
             type: 'GET',
-            url: service + '/get/' + id,
+            url: service + '/computer/get/ip/' + ip,
             dataType: 'json',
             async: false,
             success: function (result) {
@@ -93,7 +93,7 @@
         <td>/computer/get/{id}</td>
         <td>
             id: <input id="getComputerId" value=""/>
-            <button type="button" onclick="RestGet($('#getComputerId').val())">try</button>
+            <button type="button" onclick="RestGetIp($('#getComputerId').val())">try</button>
         </td>
     </tr>
     <tr>

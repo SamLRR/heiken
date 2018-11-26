@@ -8,6 +8,10 @@
     <div id="mainRow">
         <section id="main">
             <h1>Список всех компьютеров</h1>
+            <div>
+                Поиск по IP: <input id="getComputerIP" value=""/>
+                <button type="button" onclick="RestGetIp($('#getComputerIp').val())">try</button>
+            </div>
             <table border="1">
                 <tr>
                     <th>ID</th>
@@ -41,6 +45,15 @@
             <%--<jsp:include page="../fragments/newssection.jsp"/>--%>
         </section>
     </div>
+
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>RESPONSE</strong>
+    </div>
+    <div class="panel-body" id="response"></div>
 </div>
 
 <footer>
