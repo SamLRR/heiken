@@ -4,6 +4,7 @@ import io.samlr.heiken.entity.Computer;
 import io.samlr.heiken.service.ComputerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,20 +21,14 @@ public class ComputerController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     @ResponseBody
-    public Computer addComputer(@RequestBody Computer computer){
+    public Computer addComputer(@RequestBody Computer computer) {
         return computerService.addComputer(computer);
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
-    public Computer getComputerById(@PathVariable(value = "id") String id){
+    public Computer getComputerById(@PathVariable(value = "id") String id) {
         return computerService.getComputerById(Long.parseLong(id));
-    }
-
-    @RequestMapping(value = "/get/ip/{ip}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    @ResponseBody
-    public Computer getComputerByIp(@PathVariable(value = "ip") String ip){
-        return computerService.getComputerByIp(Long.parseLong(ip));
     }
 
     @RequestMapping(value = "/get/all", method = RequestMethod.GET, produces = "application/json;charset=utf-8")

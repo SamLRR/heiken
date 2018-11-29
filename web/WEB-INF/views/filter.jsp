@@ -7,42 +7,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
     <%--<script src="../" type="text/javascript"></script>--%>
 </head>
-<script>
-    var service = "http://localhost:8080"
-    var RestGetIp = function (ip) {
-        $.ajax({
-            type: 'GET',
-            url: service + '/computer/get/ip/' + ip,
-            dataType: 'json',
-            async: false,
-            success: function (result) {
-                $('#response').html(JSON.stringify(result))
-            },
-            error: function (jqXHR, testStatus, errorThrown) {
-                $('#response').html(JSON.stringify(jqXHR))
-            }
-        });
-    };
-
-</script>
-<body>
 
 <div id="mainContainer">
     <div id="mainRow">
         <section id="main">
             <h1>Список всех компьютеров</h1>
+
             <form method="post" action="filter">
                 <input type="text" name="ip">
-                <button type="submit">Найти по описанию</button>
+                <button type="submit">Найти</button>
+
             </form>
-            <%--<form method="post" action="/new_computer">--%>
-
-                <%--<input type="submit" value="Register" class="btn btn-primary btn-sm"/>--%>
-
-            <%--</form>--%>
-            <div class="well">
-                <a href="<c:url value='/new_computer' />">Добавить новый компьютер</a>
-            </div>
             <table border="1">
                 <tr>
                     <th>ID</th>
@@ -54,7 +29,7 @@
                     <th>Описание пользователя</th>
                     <th>Диапазон IP</th>
                 </tr>
-                <c:forEach items="${computer}" var="c">
+                <c:forEach items="${computers}" var="c">
                     <tr>
                         <td><a href=<c:url value='/edit-computer-${c.id}'/>>${c.id}</a></td>
                         <td>${c.code}</td>

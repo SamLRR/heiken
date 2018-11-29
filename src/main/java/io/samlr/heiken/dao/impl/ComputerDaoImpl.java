@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class ComputerDaoImpl extends BasicDaoImpl<Computer> implements ComputerDao {
     public ComputerDaoImpl(Class<Computer> entityClass) {
@@ -29,8 +30,9 @@ public class ComputerDaoImpl extends BasicDaoImpl<Computer> implements ComputerD
         return typedQuery.getSingleResult();
     }
 
+
     @Override
-    public Computer getComputerByIp(long ip) {
+    public List<Computer> getComputerByIp(String ip) {
         Session session = sessionFactory.getCurrentSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -38,9 +40,9 @@ public class ComputerDaoImpl extends BasicDaoImpl<Computer> implements ComputerD
         Root<Computer> root = criteriaQuery.from(Computer.class);
 
         criteriaQuery.select(root);
-        criteriaQuery.where(builder.equal(root.get("description"), ip));
+        criteriaQuery.where(builder.like(root.get("description"), "%"+ip+"%"));
 
         Query<Computer> typedQuery = session.createQuery(criteriaQuery);
-        return typedQuery.getSingleResult();
+        return typedQuery.getResultList();
     }
 }
