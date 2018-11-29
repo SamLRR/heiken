@@ -7,11 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class AppController {
@@ -60,6 +59,41 @@ public class AppController {
         computerService.updateComputer(computer);
 
         model.addAttribute("success", "Computer " + computer.getArmName() + " updated successfully");
+        return "registrationSuccess";
+    }
+
+
+
+    @PostMapping("filter")
+    public String getComputerByIp(@RequestParam String ip, ModelMap model) {
+        List<Computer> computers;
+
+        if (ip != null && !ip.isEmpty()) {
+            computers = computerService.getComputerByIp(ip);
+        } else {
+            computers = computerService.getAllComputers();
+        }
+        model.addAttribute("computers", computers);
+        return "filter";
+    }
+
+    @RequestMapping(value = "/new_computer", method = RequestMethod.GET)
+    public String newComputer(ModelMap model){
+        Computer computer = new Computer();
+        model.addAttribute("computer", computer);
+        model.addAttribute("edit", false);
+        return "registration";
+    }
+
+    @RequestMapping(value = { "/new_computer" }, method = RequestMethod.POST)
+    public String saveUser(@Valid Computer computer, BindingResult result,
+                           ModelMap model) {
+        if (result.hasErrors()) {
+            return "registration";
+        }
+        computerService.addComputer(computer);
+
+        model.addAttribute("success", "Computer " + computer.getArmName() + " registered successfully");
         return "registrationSuccess";
     }
 }
