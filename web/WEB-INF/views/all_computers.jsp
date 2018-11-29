@@ -35,11 +35,6 @@
                 <input type="text" name="ip">
                 <button type="submit">Найти по описанию</button>
             </form>
-            <%--<form method="post" action="/new_computer">--%>
-
-                <%--<input type="submit" value="Register" class="btn btn-primary btn-sm"/>--%>
-
-            <%--</form>--%>
             <div class="well">
                 <a href="<c:url value='/new_computer' />">Добавить новый компьютер</a>
             </div>

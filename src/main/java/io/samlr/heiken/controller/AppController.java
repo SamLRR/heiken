@@ -62,8 +62,6 @@ public class AppController {
         return "registrationSuccess";
     }
 
-
-
     @PostMapping("filter")
     public String getComputerByIp(@RequestParam String ip, ModelMap model) {
         List<Computer> computers;

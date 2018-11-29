@@ -25,7 +25,7 @@ public class ComputerServiceImpl implements ComputerService {
     }
 
     @Override
-    public Computer getComputerByIp(long ip) {
+    public List<Computer> getComputerByIp(String ip) {
         return computerDao.getComputerByIp(ip);
     }
 
