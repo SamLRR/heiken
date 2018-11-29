@@ -9,10 +9,10 @@
 <script>
     var service = 'http://localhost:8080/computer';
 
-    var RestPost = function (name, description) {
+    var RestPost = function (name, descr) {
         var JSONObject = {
             'name': name,
-            'description': description
+            'description': descr
         };
 
 
@@ -32,10 +32,10 @@
         });
     };
 
-    var RestGetIp = function (ip) {
+    var RestGet = function (id) {
         $.ajax({
             type: 'GET',
-            url: service + '/computer/get/ip/' + ip,
+            url: service + '/get/' + id,
             dataType: 'json',
             async: false,
             success: function (result) {
@@ -93,7 +93,7 @@
         <td>/computer/get/{id}</td>
         <td>
             id: <input id="getComputerId" value=""/>
-            <button type="button" onclick="RestGetIp($('#getComputerId').val())">try</button>
+            <button type="button" onclick="RestGet($('#getComputerId').val())">try</button>
         </td>
     </tr>
     <tr>
@@ -102,7 +102,7 @@
         </td>
         <td>/computer/get/all</td>
         <td>
-            <div class="header__item headerButton"><a href="/all_computers">All computers</a></div>
+            <button type="button" onclick="RestGetAll()">try</button>
         </td>
     </tr>
 

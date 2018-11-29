@@ -62,8 +62,6 @@ public class AppController {
         return "registrationSuccess";
     }
 
-
-
     @PostMapping("filter")
     public String getComputerByIp(@RequestParam String ip, ModelMap model) {
         List<Computer> computers;
@@ -78,14 +76,14 @@ public class AppController {
     }
 
     @RequestMapping(value = "/new_computer", method = RequestMethod.GET)
-    public String newComputer(ModelMap model){
+    public String newComputer(ModelMap model) {
         Computer computer = new Computer();
         model.addAttribute("computer", computer);
         model.addAttribute("edit", false);
         return "registration";
     }
 
-    @RequestMapping(value = { "/new_computer" }, method = RequestMethod.POST)
+    @RequestMapping(value = {"/new_computer"}, method = RequestMethod.POST)
     public String saveUser(@Valid Computer computer, BindingResult result,
                            ModelMap model) {
         if (result.hasErrors()) {
